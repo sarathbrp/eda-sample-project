@@ -13,4 +13,5 @@
       condition: event.name == "fred"
         timeout: 6 minutes
       action:
-        debug: 
+        debug:
+        
