@@ -4,8 +4,6 @@
   sources:
     - ansible.eda.generic:
         loop_count: "{{ total_loops | default(63072000) | int }}" # default two years
-        loop_delay: 1
-        event_delay: 5
         create_index: iteration
         payload:
           - user: "Rick"
@@ -30,9 +28,5 @@
     - name: Awx long running rule
       condition: event.user == "Rick" and event.universe == "C-137"
       actions:
-        - run_job_template:
-            organization: Default
-            name: run_basic
-
         - debug:
             msg: "Awx long running rulebook, event {{ event.iteration }}"
